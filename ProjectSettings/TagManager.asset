@@ -47,6 +47,9 @@ TagManager:
   - name: Ground
     uniqueID: 2487983163
     locked: 0
+  - name: Actors
+    uniqueID: 1519185605
+    locked: 0
   - name: Foreground
     uniqueID: 1242574099
     locked: 0

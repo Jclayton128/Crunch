@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 1593096403111014461
     second: TinyCityFarmAndRoads_3
+  - first:
+      213: 3800712131836596393
+    second: TinyCityFarmAndRoads_4
+  - first:
+      213: 1808262727012910936
+    second: TinyCityFarmAndRoads_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -132,10 +138,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 48
+        width: 16
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,7 +162,7 @@ TextureImporter:
         width: 12
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,7 +183,7 @@ TextureImporter:
         width: 48
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +204,7 @@ TextureImporter:
         width: 48
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,6 +212,48 @@ TextureImporter:
       bones: []
       spriteID: d307260fcb0db1610800000000000000
       internalID: 1593096403111014461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCityFarmAndRoads_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a053affb87deb430800000000000000
+      internalID: 3800712131836596393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyCityFarmAndRoads_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8570f20ae5d381910800000000000000
+      internalID: 1808262727012910936
       vertices: []
       indices: 
       edges: []
