@@ -3513,6 +3513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 486653284234668954, guid: e9bc53ce39c5a0f41a2cf59adafd16a6, type: 3}
+      propertyPath: healthMax
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9bc53ce39c5a0f41a2cf59adafd16a6, type: 3}
 --- !u!1001 &2316042587510732092
@@ -3522,25 +3526,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7261742377802094157, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
-      propertyPath: _moveForce
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043151742, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
-      propertyPath: m_LinearDrag
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2982842414757509066, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
       propertyPath: m_Name
       value: Crunch
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055853884072950036, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055853884072950036, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
-      propertyPath: m_FlipY
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5761735206018139951, guid: 852448fbc9d2c81438f360ef63947d65, type: 3}
       propertyPath: m_RootOrder

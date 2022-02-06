@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerWeapon
+  - Enemy
+  - EnemyWeapon
+  - NeutralWeapon
+  - Building
   - 
   - 
   - 
