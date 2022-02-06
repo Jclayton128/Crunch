@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class CrunchInput : MonoBehaviour
 {
-    public float MoveSignal_Horizontal { get; private set; } = 0;
-    public float MoveSignal_Vertical { get; private set; } = 0;
-
+    ArmMovement arm;
     public Action OnFireDown;
     public Action<float> OnFireUp;
 
     //state
+    public float MoveSignal_Horizontal { get; private set; } = 0;
+    public float MoveSignal_Vertical { get; private set; } = 0;
     public bool IsFacingRight { get; private set; } = false;
     float timeSpaceHeld = 0;
     float doubleTapTime;
 
     void Start()
     {
-        
+        arm = GetComponentInChildren<ArmMovement>();
     }
 
     // Update is called once per frame
@@ -34,13 +34,29 @@ public class CrunchInput : MonoBehaviour
         ListenForMoveLeft();
         ListenForMoveRight();
         ListenForNullMovement();
-        ListenForWeaponry();
+
+        if (arm)
+        {
+            ListenForAiming();
+        }
+        ListenForFire();
         //MoveSignal_Horizontal = Input.GetAxisRaw("Horizontal");
         //MoveSignal_Vertical = Input.GetAxisRaw("Vertical");
     }
 
+    private void ListenForAiming()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            arm.IncreaseArmPitch();
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            arm.DecreaseArmPitch();
+        }
+    }
 
-    private void ListenForWeaponry()
+    private void ListenForFire()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -61,24 +77,24 @@ public class CrunchInput : MonoBehaviour
 
     private void ListenForMoveLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A) && Time.time <= doubleTapTime)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Time.time <= doubleTapTime)
         {
             //DoubleTap
             doubleTapTime = Time.time;
             //Reverse direction
             IsFacingRight = false;
         }
-        if (Input.GetKeyDown(KeyCode.A) && Time.time > doubleTapTime)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Time.time > doubleTapTime)
         {
             //first tap
             doubleTapTime = Time.time + Preferences.GetDoublePressThreshold();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (IsFacingRight)
             {
-                MoveSignal_Horizontal = -.5f;
+                MoveSignal_Horizontal = -.3f;
             }
             if (!IsFacingRight)
             {
@@ -89,24 +105,24 @@ public class CrunchInput : MonoBehaviour
     }
     private void ListenForMoveRight()
     {
-        if (Input.GetKeyDown(KeyCode.D) && Time.time <= doubleTapTime)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Time.time <= doubleTapTime)
         {
             //DoubleTap
             doubleTapTime = Time.time;
             //Reverse direction
             IsFacingRight = true;
         }
-        if (Input.GetKeyDown(KeyCode.D) && Time.time > doubleTapTime)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Time.time > doubleTapTime)
         {
             //first tap
             doubleTapTime = Time.time + Preferences.GetDoublePressThreshold();
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             if (!IsFacingRight)
             {
-                MoveSignal_Horizontal = .5f;
+                MoveSignal_Horizontal = .3f;
             }
             if (IsFacingRight)
             {
@@ -118,7 +134,7 @@ public class CrunchInput : MonoBehaviour
 
     private void ListenForNullMovement()
     {
-        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
         {
             MoveSignal_Horizontal = 0;
         }

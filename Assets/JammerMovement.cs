@@ -63,12 +63,12 @@ public class JammerMovement : MonoBehaviour
         if (input.MousePos.x > transform.position.x && dist > thresh_SlowMove)
         {
             transform.localScale = new Vector2(1, 1);
-            Debug.Log("facing right");
+
         }
         if (input.MousePos.x < transform.position.x && dist > thresh_SlowMove)
         {
             transform.localScale = new Vector2(-1, 1);
-            Debug.Log("facing left");
+
         }
     }
 }
