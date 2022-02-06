@@ -40,14 +40,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5761735206018139951}
   - component: {fileID: 1480871968013713609}
-  - component: {fileID: 1585990038644031975}
   - component: {fileID: -7261742377802094157}
   - component: {fileID: 1043151742}
   - component: {fileID: 1043151747}
   - component: {fileID: 1415813358391206960}
+  - component: {fileID: 4068597479902199359}
   m_Layer: 0
   m_Name: Crunch
-  m_TagString: Untagged
+  m_TagString: Crunch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,19 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1585990038644031975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982842414757509066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0b589db01b9974b93835ffc6c4196f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &-7261742377802094157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +178,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8174267104717275110, guid: e88507083f5b30c44952bb11d095160d, type: 3}
   muzzleTransform: {fileID: 1006281966313175078}
+--- !u!114 &4068597479902199359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982842414757509066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b46ceab8dde6244ebcb63771f7907c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MousePos: {x: 0, y: 0, z: 0}
 --- !u!1 &3078044606963446952
 GameObject:
   m_ObjectHideFlags: 0

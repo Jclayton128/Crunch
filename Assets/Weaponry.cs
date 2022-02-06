@@ -6,7 +6,7 @@ public class Weaponry : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab = null;
     [SerializeField] Transform muzzleTransform = null;
-    PlayerInput input;
+    CrunchInput input;
 
     //settings
     float timeBetweenBullets = 0.25f;
@@ -18,9 +18,9 @@ public class Weaponry : MonoBehaviour
 
     private void Start()
     {
-        input = GetComponentInParent<PlayerInput>();
-        input.OnLMBDown += BeginFiring;
-        input.OnLMBUp += CeaseFiring;
+        input = GetComponentInParent<CrunchInput>();
+        input.OnFireDown += BeginFiring;
+        input.OnFireUp += CeaseFiring;
     }
 
     private void BeginFiring()

@@ -8,10 +8,12 @@ public class Visuals : MonoBehaviour
 {
     SpriteRenderer sr;
     Rigidbody2D rb;
+    CrunchInput input;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        input = GetComponent<CrunchInput>();
     }
 
     // Update is called once per frame
@@ -22,14 +24,14 @@ public class Visuals : MonoBehaviour
 
     private void UpdateFacing()
     {
-        if (rb)
+        if (input)
         {
-            if (rb.velocity.x > 0)
+            if (input.IsFacingRight)
             {
                 transform.localScale = new Vector2(1, 1);
                 //sr.flipX = false;
             }
-            if (rb.velocity.x < 0)
+            else
             {
                 transform.localScale = new Vector2(-1, 1);
                 //sr.flipX = true;
