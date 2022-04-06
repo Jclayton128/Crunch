@@ -3,22 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrunchInput : MonoBehaviour
+public class CrunchInput : PlayerInput
 {
     ArmMovement arm;
-    public Action OnFireDown;
-    public Action<float> OnFireUp;
+    WeaponController ws;
 
     //state
     public float MoveSignal_Horizontal { get; private set; } = 0;
     public float MoveSignal_Vertical { get; private set; } = 0;
-    public bool IsFacingRight { get; private set; } = false;
+
     float timeSpaceHeld = 0;
     float doubleTapTime;
 
     void Start()
     {
         arm = GetComponentInChildren<ArmMovement>();
+
+        ws = GetComponent<WeaponController>();
     }
 
     // Update is called once per frame
@@ -31,17 +32,33 @@ public class CrunchInput : MonoBehaviour
     
     private void ListenForKeyboardInput()
     {
-        ListenForMoveLeft();
-        ListenForMoveRight();
-        ListenForNullMovement();
-
+        ListenForWeaponSelect();
         if (arm)
         {
             ListenForAiming();
         }
+
+        ListenForMoveLeft();
+        ListenForMoveRight();
+        ListenForNullMovement();
+
         ListenForFire();
         //MoveSignal_Horizontal = Input.GetAxisRaw("Horizontal");
         //MoveSignal_Vertical = Input.GetAxisRaw("Vertical");
+    }
+
+    private void ListenForWeaponSelect()
+    {
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            OnScrollUpLeft?.Invoke();
+            return;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            OnScrollDownRight?.Invoke();
+            return;
+        }
     }
 
     private void ListenForAiming()
@@ -72,6 +89,11 @@ public class CrunchInput : MonoBehaviour
             OnFireUp?.Invoke(timeSpaceHeld);
             //Debug.Log("LMB up");
             timeSpaceHeld = 0;
+        }
+        if (timeSpaceHeld > 0 && !Input.GetKey(KeyCode.Space))
+        {
+            timeSpaceHeld = 0;
+            OnFireUp?.Invoke(timeSpaceHeld);
         }
     }
 

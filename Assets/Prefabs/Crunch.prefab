@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006281966313175078}
+  - component: {fileID: 893538494323851243}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -30,6 +31,18 @@ Transform:
   m_Father: {fileID: 2601457763642859189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &893538494323851243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583842957127387125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db091f510a8fda4ea9f26869ea377ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2982842414757509066
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,8 +56,8 @@ GameObject:
   - component: {fileID: -7261742377802094157}
   - component: {fileID: 1043151742}
   - component: {fileID: 1043151747}
-  - component: {fileID: 1415813358391206960}
   - component: {fileID: 4068597479902199359}
+  - component: {fileID: 121410062}
   m_Layer: 0
   m_Name: Crunch
   m_TagString: Crunch
@@ -130,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b9faacd0ecbe5429eeed161bd9fe6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveForce: 40
+  _moveForce: 50
 --- !u!50 &1043151742
 Rigidbody2D:
   serializedVersion: 4
@@ -164,20 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebda8e90e3446f4ab4ab01d1c5a251e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1415813358391206960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982842414757509066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08f16997e5b3ac40a7119ae1515533b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8174267104717275110, guid: e88507083f5b30c44952bb11d095160d, type: 3}
-  muzzleTransform: {fileID: 1006281966313175078}
 --- !u!114 &4068597479902199359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +189,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b46ceab8dde6244ebcb63771f7907c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MousePos: {x: 0, y: 0, z: 0}
+--- !u!114 &121410062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982842414757509066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397741e770dd1704f95848398d383ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 11400000, guid: 177bcfce928a08d4d8c2f0b9601c9f18, type: 2}
+  - {fileID: 11400000, guid: 177bcfce928a08d4d8c2f0b9601c9f18, type: 2}
+  - {fileID: 11400000, guid: 177bcfce928a08d4d8c2f0b9601c9f18, type: 2}
+  - {fileID: 11400000, guid: 177bcfce928a08d4d8c2f0b9601c9f18, type: 2}
 --- !u!1 &3078044606963446952
 GameObject:
   m_ObjectHideFlags: 0

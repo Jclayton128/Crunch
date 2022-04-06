@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class JammerInput : MonoBehaviour
+public class JammerInput : PlayerInput
 {
     public Vector3 MousePos; //{ get; private set; } = Vector2.zero;
-
-    public Action OnLMBDown;
-    public Action<float> OnLMBUp;
-
 
     //state
     float timePressed_LMB = 0;
@@ -30,7 +26,7 @@ public class JammerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            OnLMBDown?.Invoke();
+            OnFireDown?.Invoke();
             //Debug.Log("LMB down");
         }
         if (Input.GetKey(KeyCode.Mouse0))
@@ -39,7 +35,7 @@ public class JammerInput : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            OnLMBUp?.Invoke(timePressed_LMB);
+            OnFireUp?.Invoke(timePressed_LMB);
             //Debug.Log("LMB up");
             timePressed_LMB = 0;
         }
