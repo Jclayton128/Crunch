@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 0c1481289b7c3194db1fde3480c78e74
+guid: 9cb9515522844054d885bcb329a3adbb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2899123554322406251
-    second: LeftHead_0
+      213: 3161226380740855880
+    second: ComboLeftWalk_0
   - first:
-      213: -8474078127527085343
-    second: LeftHead_1
+      213: -5338305147213450277
+    second: ComboLeftWalk_1
   - first:
-      213: -7753244960710422711
-    second: LeftHead_2
+      213: 4311595854281031378
+    second: ComboLeftWalk_2
   - first:
-      213: -1211489024117596951
-    second: LeftHead_3
+      213: -6806052476914936137
+    second: ComboLeftWalk_3
   - first:
-      213: -2311003434154616381
-    second: LeftHead_4
+      213: 4790762079095261983
+    second: ComboLeftWalk_4
   - first:
-      213: -887183877299010542
-    second: LeftHead_5
+      213: 342048769743434088
+    second: ComboLeftWalk_5
   - first:
-      213: -5208807620458756097
-    second: LeftHead_6
+      213: 1149855926550874654
+    second: ComboLeftWalk_6
   - first:
-      213: 5193883506103215418
-    second: LeftHead_7
+      213: -243343428505260219
+    second: ComboLeftWalk_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeftHead_0
+      name: ComboLeftWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6bda5f2381cb3820800000000000000
-      internalID: 2899123554322406251
+      spriteID: 84807a6f4aeeedb20800000000000000
+      internalID: 3161226380740855880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_1
+      name: ComboLeftWalk_1
       rect:
         serializedVersion: 2
         x: 16
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea37d137d6066a80800000000000000
-      internalID: -8474078127527085343
+      spriteID: bd3f3bd80c78ae5b0800000000000000
+      internalID: -5338305147213450277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_2
+      name: ComboLeftWalk_2
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94f844469c0f66490800000000000000
-      internalID: -7753244960710422711
+      spriteID: 2deb77de59dd5db30800000000000000
+      internalID: 4311595854281031378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_3
+      name: ComboLeftWalk_3
       rect:
         serializedVersion: 2
         x: 48
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec9f2cb62def2fe0800000000000000
-      internalID: -1211489024117596951
+      spriteID: 7b651de055b0c81a0800000000000000
+      internalID: -6806052476914936137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_4
+      name: ComboLeftWalk_4
       rect:
         serializedVersion: 2
         x: 64
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c99180fe9aadefd0800000000000000
-      internalID: -2311003434154616381
+      spriteID: f1b82e77ab43c7240800000000000000
+      internalID: 4790762079095261983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_5
+      name: ComboLeftWalk_5
       rect:
         serializedVersion: 2
         x: 80
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 214832fc6f610b3f0800000000000000
-      internalID: -887183877299010542
+      spriteID: 861ba683b833fb400800000000000000
+      internalID: 342048769743434088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_6
+      name: ComboLeftWalk_6
       rect:
         serializedVersion: 2
         x: 96
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff7453f011996b7b0800000000000000
-      internalID: -5208807620458756097
+      spriteID: e1a41fc7fdb15ff00800000000000000
+      internalID: 1149855926550874654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeftHead_7
+      name: ComboLeftWalk_7
       rect:
         serializedVersion: 2
         x: 112
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a35ea0ac781641840800000000000000
-      internalID: 5193883506103215418
+      spriteID: 54fa489e0787f9cf0800000000000000
+      internalID: -243343428505260219
       vertices: []
       indices: 
       edges: []

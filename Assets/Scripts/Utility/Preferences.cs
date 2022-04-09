@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Preferences
 {
-    static float doublePressThreshold_Keys = 1f;
+    static float doublePressThreshold_Keys = 0.66f;
 
     public static void SetDoublePressThreshold(float amount)
     {
