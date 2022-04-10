@@ -1,98 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] WeaponSystem[] weapons = null;
-    WeaponSelectUI wsui;
-    PlayerInput input;
-    Transform muzzle;
+    InputController _ic;
+    [SerializeField] GameObject _genericWeaponPrefab = null;
+
+    [Tooltip("0: Cannon, 1: Missile, 2: Artillery, 3: SmallArms")]
+    [SerializeField] WeaponSystem[] _weaponOptions = null;
+    public enum WeaponType { Cannon, Missile, Artillery, SmallArms};
+
+    //settings
 
     //state
-    int currentWeapon = 0;
-    bool isFiring = false;
+    List<WeaponBehavior> _activeWeapons = new List<WeaponBehavior>();
+    Queue<WeaponBehavior> _pooledWeapons = new Queue<WeaponBehavior>();
 
-    
-    void Start()
+    private void Awake()
     {
-        wsui = FindObjectOfType<WeaponSelectUI>();
-        wsui.PopulateWeaponIcons(GetWeaponIcons());
-        wsui.UpdateWeaponSelectionUI(currentWeapon);
-        input = GetComponent<PlayerInput>();
-        input.OnFireDown += PassFireDown;
-        input.OnFireUp += PassFireUp;
-        input.OnScrollUpLeft += ScrollWeaponUpLeft;
-        input.OnScrollDownRight += ScrollWeaponDownRight;
-        muzzle = GetComponentInChildren<Muzzle>().gameObject.transform;
+        _ic = GetComponent<InputController>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject CreateWeapon(Vector3 muzzleLocation, Vector3 initialVector,
+        WeaponType weaponType, Transform targetTransform, float power)
     {
-        PassFiring();
-    }
-    public void ScrollWeaponUpLeft()
-    {
-        currentWeapon--;
-        //if (currentWeapon < 0)
-        //{
-        //    currentWeapon = weapons.Length - 1;
-        //}
-        currentWeapon = Mathf.Clamp(currentWeapon, 0, weapons.Length - 1);
-        wsui.UpdateWeaponSelectionUI(currentWeapon);
-    }
-
-    public void ScrollWeaponDownRight()
-    {
-        currentWeapon++;
-        currentWeapon = Mathf.Clamp(currentWeapon, 0, weapons.Length - 1);
-        //if (currentWeapon > weapons.Length - 1)
-        //{
-        //    currentWeapon = 0;
-        //}
-        wsui.UpdateWeaponSelectionUI(currentWeapon);
-    }
-
-    public void PassFireDown()
-    {
-        isFiring = true;
-        weapons[currentWeapon].HandleFireDown(muzzle);
-    }
-
-    public void PassFireUp(float time)
-    {
-        isFiring = false;
-        if (input.TargetTransform)
+        WeaponBehavior newWeapon;
+        if (_pooledWeapons.Count == 0)
         {
-            weapons[currentWeapon].HandleFireUp(time, input.TargetTransform);
+            newWeapon = Instantiate(_genericWeaponPrefab).GetComponent<WeaponBehavior>();
+            newWeapon.Initialize(this);
         }
         else
         {
-            weapons[currentWeapon].HandleFireUp(time, input.TargetPosition);
+            newWeapon = _pooledWeapons.Dequeue();
+            newWeapon.gameObject.SetActive(true);
         }
 
+        _activeWeapons.Add(newWeapon);
+        newWeapon.transform.position = muzzleLocation;
+        newWeapon.transform.rotation = Quaternion.LookRotation(Vector3.forward, initialVector);
+        IntializeNewWeapon(weaponType, newWeapon);
+        return newWeapon.gameObject;
     }
 
-    public void PassFiring()
+
+    public void ReturnWeapon(WeaponBehavior completedWeapon)
     {
-        if (isFiring)
-        {
-            weapons[currentWeapon].HandleFiringPulse();
-        }
+        _pooledWeapons.Enqueue(completedWeapon);
+        _activeWeapons.Remove(completedWeapon);
+        completedWeapon.gameObject.SetActive(false);
     }
 
-    private (Sprite[],Color[]) GetWeaponIcons()
+    private void IntializeNewWeapon(WeaponType weaponType, WeaponBehavior newWeapon)
     {
-        Sprite[] icons = new Sprite[weapons.Length];
-        Color[] colors = new Color[weapons.Length];
-        for (int i = 0; i < weapons.Length; i++)
-        {
-            icons[i] = weapons[i].GetIcon();
-            colors[i] = weapons[i].GetColor();
-        }
-        Debug.Log($"icons: {icons.Length}");
-        return (icons, colors);
-    }
+        WeaponSystem system = _weaponOptions[(int)weaponType];
+        
+        // Update commons stats        
+        newWeapon.Lifetime = system.Lifetime;
+        newWeapon.WeaponSprite = system.WeaponSprite;
 
+        // Update specific stats
+        switch (weaponType)
+        {
+            case WeaponType.Cannon:
+                newWeapon.WeaponSprite = system.WeaponSprite;
+                newWeapon.Speed = system.Speed;
+                newWeapon.Damage = system.Damage;
+                break;
+        }
+        newWeapon.SetAsNewWeapon();
+    }
 }

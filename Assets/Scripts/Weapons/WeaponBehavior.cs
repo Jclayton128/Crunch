@@ -6,45 +6,60 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WeaponBehavior : MonoBehaviour
 {
-    protected Transform targetTransform;
-    protected Vector3 targetPosition;
-    protected float lifetime;
-    protected float chargePower;
+    WeaponController _wc;
 
-    protected Rigidbody2D rb;
-    [SerializeField] float initialSpeed; 
+    protected Rigidbody2D _rb;
+    protected SpriteRenderer _sr;
 
-    void Start()
+    //public parameters
+    public float Lifetime;
+    public float Damage;
+    public float Speed;
+    //turn speed
+    //snaking?
+    public Sprite WeaponSprite;
+
+
+    //state
+    float _timeToDie;
+    public Transform TargetTransform;
+    public Transform TargetPosition;
+
+
+    protected virtual void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Execute Various Behaviours
+        //
+
+        CheckForLifetimeDeath();
     }
 
-    public void Initialize(Transform targetTransform, float lifetime, float chargePower)
+    public void Initialize(WeaponController weapConRef)
     {
-        this.targetTransform = targetTransform;
-        this.lifetime = lifetime;
-        this.chargePower = chargePower;
-
-        InternalInitialize();
-    }
-    public void Initialize(Vector3 targetPosition, float lifetime, float chargePower)
-    {
-        this.targetPosition = targetPosition;
-        this.lifetime = lifetime;
-        this.chargePower = chargePower;
-
-        InternalInitialize();
+        _wc = weapConRef;
     }
 
-    private void InternalInitialize()
+    public void SetAsNewWeapon()
     {
-        rb.velocity = transform.up * initialSpeed;
-        Destroy(gameObject, lifetime);
+        _sr.sprite = WeaponSprite;
+        _rb.velocity = transform.up * Speed;
+        _timeToDie = Time.time + Lifetime;
+    }
+
+    private void CheckForLifetimeDeath()
+    {
+        if (Time.time > _timeToDie)
+        {
+            Debug.Log("Dying");
+            _wc.ReturnWeapon(this);
+            //Destroy(gameObject);
+        }
     }
 }

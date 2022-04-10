@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8174267104717275104}
   - component: {fileID: 217168068304436489}
   - component: {fileID: -325410240630723677}
+  - component: {fileID: -5681139650575972594}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: GenericWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +101,7 @@ Rigidbody2D:
   m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8787eea2073a98409387c4242d1b829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactParticleFX: {fileID: 0}
 --- !u!58 &-325410240630723677
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +136,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.03
+--- !u!114 &-5681139650575972594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174267104717275110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85c96bb2422f9d42a56fd604f28bf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 0
+  Damage: 0
+  Speed: 0
+  WeaponSprite: {fileID: 0}
+  TargetTransform: {fileID: 0}
+  TargetPosition: {fileID: 0}

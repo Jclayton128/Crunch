@@ -5,8 +5,8 @@ using System;
 
 public class InputController : MonoBehaviour
 {
-    public Action OnFireDown;
-    public Action<float> OnFireUp;
+    public Action OnPrimaryFireDown;
+    public Action<float> OnPrimaryFireUp;
     public Action OnScrollUpLeft;
     public Action OnScrollDownRight;
     public Action OnShiftDown;
@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour
         ListenForMoveRight();
         ListenForNullMovement();
 
-        ListenForFire();
+        ListenForPrimaryFire();
         ListenForShift();
         
         //MoveSignal_Horizontal = Input.GetAxisRaw("Horizontal");
@@ -77,27 +77,27 @@ public class InputController : MonoBehaviour
         MouseTarget = ray.GetPoint(distance);
     }
 
-    private void ListenForFire()
+    private void ListenForPrimaryFire()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            OnFireDown?.Invoke();
+            OnPrimaryFireDown?.Invoke();
             //Debug.Log("LMB down");
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             timeSpaceHeld += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            OnFireUp?.Invoke(timeSpaceHeld);
+            OnPrimaryFireUp?.Invoke(timeSpaceHeld);
             //Debug.Log("LMB up");
             timeSpaceHeld = 0;
         }
         if (timeSpaceHeld > 0 && !Input.GetKey(KeyCode.Space))
         {
             timeSpaceHeld = 0;
-            OnFireUp?.Invoke(timeSpaceHeld);
+            OnPrimaryFireUp?.Invoke(timeSpaceHeld);
         }
     }
     private void ListenForShift()
