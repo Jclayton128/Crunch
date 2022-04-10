@@ -25,13 +25,13 @@ public class PrimaryWeaponHandler : MonoBehaviour
     public float _angleDesired = 0;
     float angleActual = 0;
     public int _angleIndex = 0;
-    bool _isSuppressedDuringReversal = false;
 
     private void Awake()
     {
         _ic = FindObjectOfType<InputController>();
-        _ic.OnReverseDirection += HandleReversal;
         _cm = GetComponent<CrunchMovement>();
+        _cm.OnBeginReversal += SuppressWeaponryDuringReversal;
+        _cm.OnCompleteReversal += EnableWeaponryAfterReversal;
     }
 
     private void Start()
@@ -44,11 +44,6 @@ public class PrimaryWeaponHandler : MonoBehaviour
         CalculateAngle();
         AdjustSprite();
         AdjustMuzzlePoint();
-        if (_isSuppressedDuringReversal && !_cm.IsReversing)
-        {
-            _weaponSR.enabled = true;
-            _isSuppressedDuringReversal = false;
-        }
     }
     private void CalculateAngle()
     {
@@ -93,9 +88,16 @@ public class PrimaryWeaponHandler : MonoBehaviour
         //Adjust _weaponTransform rotation or muzzle point;
     }
 
-    private void HandleReversal()
+    private void SuppressWeaponryDuringReversal()
     {
-        _isSuppressedDuringReversal = true;
+        Debug.Log("suppress weapons");
         _weaponSR.enabled = false;
     }
+
+
+    private void EnableWeaponryAfterReversal()
+    {
+        _weaponSR.enabled = true;        
+    }
+
 }

@@ -9,6 +9,8 @@ public class CrunchMovement : MonoBehaviour
     InputController _ic;
     Rigidbody2D _rb;
     Animator _anim;
+    public Action OnBeginReversal;
+    public Action OnCompleteReversal;
 
     //settings
     [SerializeField] float _moveForce;
@@ -18,6 +20,7 @@ public class CrunchMovement : MonoBehaviour
     //state
     public int _walkMode; //-1: backpedal, 0: idle, 1: walk, 2: run
     public int _gear = 1;
+    public bool MustReverse { get; private set; } = false;
     public bool IsReversing { get; private set; } = false;
 
     //anim state
@@ -35,7 +38,7 @@ public class CrunchMovement : MonoBehaviour
     void Start()
     {
         _ic.OnShiftDown += HandleShiftMode;
-
+        Time.timeScale = 1f;
 
     }
 
@@ -47,18 +50,27 @@ public class CrunchMovement : MonoBehaviour
     private void HandleReverseDirection()
     {
         _anim.SetBool("MustReverse", true);
+        MustReverse = true;
+    }
+
+    public void BeginReversing()
+    {
         IsReversing = true;
+        OnBeginReversal?.Invoke();
     }
 
     public void CompleteReversal() // Called via AnimationEvent
     {
         _anim.SetBool("MustReverse", false);
+        OnCompleteReversal?.Invoke();
+        MustReverse = false;
         IsReversing = false;
+        UpdateTransformToFaceDirection();
     }
 
     private void UpdateAnimator()
     {
-        if (IsReversing) return;
+        if (MustReverse) return;
         if (_ic.IsFacingRight)
         {
             if (_ic.MoveSignal_Horizontal < 0)
@@ -66,7 +78,7 @@ public class CrunchMovement : MonoBehaviour
                 if (_walkMode != -1)
                 {
                     _anim.SetFloat("Speed", -1);
-                    Debug.Log("backpedal speed -1");
+                    //Debug.Log("backpedal speed -1");
                 }
                 _walkMode = -1;
                 return;
@@ -143,29 +155,35 @@ public class CrunchMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        UpdateTransformToFaceDirection();
     }
 
     private void UpdateTransformToFaceDirection()
     {
         if (_ic.IsFacingRight)
         {
+            Debug.Log("negative x transform");
             transform.localScale = new Vector3(-1, 1, 1);
         }
         if (!_ic.IsFacingRight)
         {
+            Debug.Log("positive x transform");
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
     private void Move()
     {
-        if (IsReversing) return;
-        
-        if (Mathf.Abs(_ic.MoveSignal_Horizontal) > float.Epsilon)
+        if (Mathf.Abs(_ic.MoveSignal_Horizontal) <= float.Epsilon)
         {
+            _rb.drag = 5;
+        }
+        else
+        {
+            if (MustReverse) return;
+            _rb.drag = 2;
             _rb.AddForce(_moveForce * _gear * _ic.MoveSignal_Horizontal * Vector2.right);
         }
+
     }
 
     private void HandleShiftMode()

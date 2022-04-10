@@ -111,6 +111,7 @@ public class InputController : MonoBehaviour
 
     private void ListenForMoveLeft()
     {
+        if (Input.GetKey(KeyCode.D)) return; //don't accept conflicting input
         if (Input.GetKeyDown(KeyCode.A) && Time.time <= doubleTapTime && IsFacingRight)
         {
             //DoubleTap
@@ -141,6 +142,7 @@ public class InputController : MonoBehaviour
     }
     private void ListenForMoveRight()
     {
+        if (Input.GetKey(KeyCode.A)) return; //don't accept conflicting input
         if (Input.GetKeyDown(KeyCode.D) && Time.time <= doubleTapTime && !IsFacingRight)
         {
             //DoubleTap
