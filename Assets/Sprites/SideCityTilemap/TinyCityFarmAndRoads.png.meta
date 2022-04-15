@@ -61,7 +61,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -137,9 +137,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 31
         width: 16
-        height: 7
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +157,10 @@ TextureImporter:
       name: TinyCityFarmAndRoads_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 33
-        width: 12
-        height: 6
+        x: 32
+        y: 31
+        width: 16
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: TinyCityFarmAndRoads_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 48
-        height: 4
+        x: 16
+        y: 31
+        width: 16
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: TinyCityFarmAndRoads_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 48
-        height: 3
+        x: 48
+        y: 31
+        width: 16
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,13 +220,13 @@ TextureImporter:
       name: TinyCityFarmAndRoads_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
+        x: 0
+        y: 16
+        width: 48
         height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 3, y: 0, z: 3, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -241,12 +241,12 @@ TextureImporter:
       name: TinyCityFarmAndRoads_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 5
+        x: 0
+        y: 0
+        width: 48
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

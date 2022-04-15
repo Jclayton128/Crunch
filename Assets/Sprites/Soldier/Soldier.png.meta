@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: 9cb9515522844054d885bcb329a3adbb
+guid: 6d4ac5b0b4f4c8a469ef58d6352e0d07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3161226380740855880
-    second: ComboLeftWalk_0
+      213: -3868812660829053132
+    second: Soldier_0
   - first:
-      213: -5338305147213450277
-    second: ComboLeftWalk_1
+      213: 4748496047744815929
+    second: Soldier_1
   - first:
-      213: 4311595854281031378
-    second: ComboLeftWalk_2
+      213: 2805721153289186860
+    second: Soldier_2
   - first:
-      213: -6806052476914936137
-    second: ComboLeftWalk_3
+      213: -5331859181223373285
+    second: Soldier_3
   - first:
-      213: 4790762079095261983
-    second: ComboLeftWalk_4
+      213: 8924183435215946824
+    second: Soldier_4
   - first:
-      213: 342048769743434088
-    second: ComboLeftWalk_5
+      213: 152417265559848108
+    second: Soldier_5
   - first:
-      213: 1149855926550874654
-    second: ComboLeftWalk_6
+      213: -5572970920532211618
+    second: Soldier_6
   - first:
-      213: -243343428505260219
-    second: ComboLeftWalk_7
+      213: -2880666656720651278
+    second: Soldier_7
+  - first:
+      213: -1733617733217763490
+    second: Soldier_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,169 +142,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ComboLeftWalk_0
+      name: Soldier_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84807a6f4aeeedb20800000000000000
-      internalID: 3161226380740855880
+      spriteID: 43f10c002673f4ac0800000000000000
+      internalID: -3868812660829053132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComboLeftWalk_1
+      name: Soldier_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9331d2f2ffb06e140800000000000000
+      internalID: 4748496047744815929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ee998068cefe620800000000000000
+      internalID: 2805721153289186860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_3
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1696c6f25e6106b0800000000000000
+      internalID: -5331859181223373285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_4
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd3f3bd80c78ae5b0800000000000000
-      internalID: -5338305147213450277
+      spriteID: 844c87e4d8119db70800000000000000
+      internalID: 8924183435215946824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComboLeftWalk_2
+      name: Soldier_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4c45b02be7d1200800000000000000
+      internalID: 152417265559848108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5888128974d8a2b0800000000000000
+      internalID: -5572970920532211618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_7
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb7ad920f0d508d0800000000000000
+      internalID: -2880666656720651278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_8
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2deb77de59dd5db30800000000000000
-      internalID: 4311595854281031378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ComboLeftWalk_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b651de055b0c81a0800000000000000
-      internalID: -6806052476914936137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ComboLeftWalk_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1b82e77ab43c7240800000000000000
-      internalID: 4790762079095261983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ComboLeftWalk_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 861ba683b833fb400800000000000000
-      internalID: 342048769743434088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ComboLeftWalk_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1a41fc7fdb15ff00800000000000000
-      internalID: 1149855926550874654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ComboLeftWalk_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54fa489e0787f9cf0800000000000000
-      internalID: -243343428505260219
+      spriteID: e5fbc335bd3f0f7e0800000000000000
+      internalID: -1733617733217763490
       vertices: []
       indices: 
       edges: []
@@ -315,9 +339,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {instanceID: 0}
-      name: _NormalMap
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
