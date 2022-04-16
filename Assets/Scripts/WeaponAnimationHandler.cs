@@ -7,13 +7,12 @@ public class WeaponAnimationHandler : MonoBehaviour
 {
 
     InputController _ic;
-    WeaponController _wc;
     [SerializeField] SpriteRenderer _weaponSR = null;
     [SerializeField] Transform _weaponTransform = null;
     [SerializeField] Sprite[] _rifleSprites_Left = null;
+    [SerializeField] ParticleSystem _ps = null;
+    [SerializeField] float[] _particleOffsets = null;
     CrunchMovement _cm;
-    //[SerializeField] Sprite[] _rifleSprites_Right = null;
-    [SerializeField] GameObject _bulletPrefab = null;
 
     //settings
     [SerializeField] Transform[] _weaponPivots = null;
@@ -110,7 +109,6 @@ public class WeaponAnimationHandler : MonoBehaviour
     }
     private void SuppressWeaponryDuringReversal()
     {
-        Debug.Log("suppress weapons");
         _weaponSR.enabled = false;
     }
 
@@ -128,6 +126,29 @@ public class WeaponAnimationHandler : MonoBehaviour
         CurrentWeaponPivot = _weaponPivots[index];
 
         //Adjust _weaponTransform rotation or muzzle point;
+    }
+
+    public void HandleFootfall(int index)
+    {
+        if (!_ic.IsFacingRight)
+        {
+            _ps.transform.position = new Vector2(transform.position.x + _particleOffsets[index], 0);
+        }
+        if (_ic.IsFacingRight)
+        {
+            _ps.transform.position = new Vector2(transform.position.x - _particleOffsets[index], 0);
+        }
+        
+        if (index == 0)
+        {
+            _ps.Emit(20);
+        }
+        else
+        {
+            _ps.Emit(7);
+        }
+
+
     }
 
     #endregion
