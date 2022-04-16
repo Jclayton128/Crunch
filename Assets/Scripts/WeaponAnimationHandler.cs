@@ -49,15 +49,15 @@ public class WeaponAnimationHandler : MonoBehaviour
     }
     private void CalculateAngle()
     {
-        _dir = _ic.MouseTarget - transform.position;
+        _dir = _ic.MouseTarget - _weaponTransform.position;
 
         if (_ic.IsFacingRight)
         {
-            _angleDesired = Vector3.SignedAngle(transform.right, _dir, Vector3.forward);
+            _angleDesired = Vector3.SignedAngle(_weaponTransform.right, _dir, Vector3.forward);
         }
         else
         {
-            _angleDesired = -1 * Vector3.SignedAngle(transform.right * -1, _dir, Vector3.forward);
+            _angleDesired = -1 * Vector3.SignedAngle(_weaponTransform.right * -1, _dir, Vector3.forward);
         }
 
     }
