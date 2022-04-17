@@ -33,6 +33,7 @@ public class SlimeBrain : MonoBehaviour
     private void Start()
     {
         _timeForNextJump = GetRandomNextChargeTime();
+        _anim.SetFloat("Offset", UnityEngine.Random.Range(0, 1f));
     }
 
     private void Update()
@@ -54,7 +55,7 @@ public class SlimeBrain : MonoBehaviour
         GameObject[] buildings = GameObject.FindGameObjectsWithTag("Building");
         foreach (var building in buildings)
         {
-            float curdist = (transform.position.x - building.transform.position.x);
+            float curdist = Mathf.Abs(transform.position.x - building.transform.position.x);
             if (curdist < dist)
             {
                 dist = curdist;
@@ -112,12 +113,13 @@ public class SlimeBrain : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 12)
+        if (collision.gameObject.layer == 12) //Collide with building
         {
             _anim.SetBool("IsAirborne", false);
             _isAirborne = false;
-
+            _rb.drag = 4f;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -126,7 +128,19 @@ public class SlimeBrain : MonoBehaviour
         {
             _anim.SetBool("IsAirborne", true);
             _isAirborne = true;
+            _rb.drag = 0;
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        BuildingHealth bh;
+        //if (collision.gameObject.layer == 11)// Collide with building
+        if (collision.TryGetComponent<BuildingHealth>(out bh))
+        {
+            _rb.velocity = new Vector2(-1 * _rb.velocity.x, _rb.velocity.y);
+            bh.ReceiveDamage(Mathf.Abs(_rb.velocity.x));
         }
     }
 }
