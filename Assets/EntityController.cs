@@ -13,8 +13,8 @@ public class EntityController : MonoBehaviour
 
 
     [Header("Offsets")]
-    [SerializeField] Vector2 _slimeOffset = new Vector2(-3, 1);
-    [SerializeField] Vector2 _trooperOffset = new Vector2(5, 1);
+    [SerializeField] Vector3 _slimeOffset = new Vector2(-3, 1);
+    [SerializeField] Vector3 _trooperOffset = new Vector2(5, 1);
 
     //state
     
@@ -46,12 +46,30 @@ public class EntityController : MonoBehaviour
 
     public void SpawnSlime()
     {
-
+        GameObject go;
+        if (_crash)
+        {
+            go = Instantiate(_slimePrefab, _crash.transform.position + _slimeOffset, Quaternion.identity);
+        }
+        else
+        {
+            go = Instantiate(_slimePrefab, _slimeOffset, Quaternion.identity);
+        }
+        _slimeList.Add(go);
     }
 
     public void SpawnTrooper()
     {
-
+        GameObject go;
+        if (_crash)
+        {
+            go = Instantiate(_trooperPrefab, _crash.transform.position + _trooperOffset, Quaternion.identity);
+        }
+        else
+        {
+            go = Instantiate(_trooperPrefab, _trooperOffset, Quaternion.identity);
+        }
+        _trooperList.Add(go);
     }
 
     #endregion

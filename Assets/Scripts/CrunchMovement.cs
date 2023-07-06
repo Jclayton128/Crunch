@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CrunchMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class CrunchMovement : MonoBehaviour
     InputController _ic;
     Rigidbody2D _rb;
     Animator _anim;
+    CinemachineImpulseSource _cis;
     public Action OnBeginReversal;
     public Action OnCompleteReversal;
 
@@ -39,7 +41,7 @@ public class CrunchMovement : MonoBehaviour
     {
         _ic.OnShiftDown += HandleShiftMode;
         Time.timeScale = 1f;
-
+        _cis = Camera.main.GetComponentInChildren<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -202,9 +204,10 @@ public class CrunchMovement : MonoBehaviour
 
     public void UpdateIdleFrame(float bestIdleFrame)
     {
-        Debug.Log($"called {bestIdleFrame}");
+        //Debug.Log($"called {bestIdleFrame}");
         _idleFrame = bestIdleFrame;
         _anim.SetFloat("IdleFrame", _idleFrame);
+        _cis.GenerateImpulse(_rb.velocity.magnitude);
     }
 }
 
